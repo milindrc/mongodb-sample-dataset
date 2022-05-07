@@ -33,7 +33,10 @@ docker run -d --name mongo -p 2717:27017 -v ~/mongodb:/data/db mvertes/alpine-mo
 # args
 #   hostname   
 #   port
-./script.sh localhost 2717
+./script.sh localhost 27017
+
+# for windows
+.\winscript.bat localhost 27017
 
 # start mongo shell
 docker exec -it mongo mongo
