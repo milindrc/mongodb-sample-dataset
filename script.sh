@@ -13,9 +13,9 @@ fi
 
 for coll in *; do
     if [ -d "${coll}" ] ; then
-        echo "$coll"
+        echo "${coll/sample_}"
         for file in $coll/*; do
-            mongoimport --drop --host $1 --port $2 --db "$coll" --collection "$(basename $file .json)" --file $file $auth
+            mongoimport --drop --host $1 --port $2 --db "${coll/sample_}" --collection "$(basename $file .json)" --file $file $auth
             #echo "$(basename $file .json)"
             #echo "$file"
         done

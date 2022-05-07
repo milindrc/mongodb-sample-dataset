@@ -20,9 +20,10 @@ if not "%3"=="" (
 
 for /D %%s in (*) do (
 	rem \r
+	powershell write-host -fore Cyan Database %%s
 	for %%t in (%%s\*) do (
 		rem echo %%t
-		powershell write-host -fore Green Importing Collection %%~nxt for Database %%s  
+		powershell write-host -fore Green Importing Collection from %%~nxt
 		set db=%%s
 		rem echo mongoimport --drop --host %1 --port %2 --db "!db:sample_=!" --collection "%%~nt" --file %%t !auth!
 		mongoimport --drop --host %1 --port %2 --db "!db:sample_=!" --collection "%%~nt" --file %%t !auth!
